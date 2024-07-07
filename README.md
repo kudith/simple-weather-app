@@ -50,7 +50,7 @@ Your feedback is highly appreciated! If you have any issues, suggestions, or jus
 
 ## To-Do
 
-This project is still under development. Here are some tasks you can consider:
+This project is still under development. Here are some tasks that I want to do:
 
 - [ ] Improve error handling for API requests.
 - [ ] Add unit tests to ensure application reliability.
