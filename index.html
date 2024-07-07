@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>WeatherWiz</title>
+    <style>
+      body {
+        font-family: "Comic Neue", cursive;
+      }
+
+      .comic-border {
+        border: 5px solid black;
+        box-shadow: 5px 5px 0px 0px black;
+      }
+
+      .comic-text {
+        font-family: "Comic Neue", cursive;
+        text-shadow: 3px 3px black;
+      }
+
+      .animate-weather {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .highlight {
+      }
+
+      .container {
+        max-width: 1200px;
+      }
+
+      /* Custom Styles for WeatherWiz */
+      .weather-input {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .weather-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .weather-icon {
+        width: 100px;
+        height: 100px;
+        margin: 20px auto;
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-black min-h-screen flex flex-col justify-between">
+    <!-- Navbar -->
+    <nav
+      class="bg-gray-800 text-white py-4 fixed w-full z-10 top-0 comic-border"
+    >
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <div>
+          <a class="text-3xl font-extrabold comic-text" href="#">WeatherWiz</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div
+      class="container mx-auto min-h-screen flex flex-col items-center justify-center flex-grow px-6 py-16 mt-16"
+    >
+      <div class="text-center">
+        <h1
+          class="text-5xl md:text-7xl font-extrabold mb-6 comic-text highlight"
+        >
+          Welcome to WeatherWiz
+        </h1>
+        <p class="text-2xl md:text-3xl mb-10 highlight">
+          "Experience the magic of accurate weather forecasts at your
+          fingertips."
+        </p>
+        <div class="weather-card comic-border">
+          <div class="weather-input">
+            <p class="text-3xl mb-4">Enter your city:</p>
+            <div class="flex items-center justify-center">
+              <input
+                id="cityInput"
+                type="text"
+                placeholder="City Name"
+                class="px-4 py-2 text-lg border-2 border-black comic-border"
+                onkeypress="handleKeyPress(event)"
+              />
+              <button
+                onclick="getWeatherByCity()"
+                class="bg-gray-800 text-white px-6 py-2 ml-4 rounded-full hover:bg-gray-900 transition duration-300 comic-border"
+              >
+                Get Weather
+              </button>
+            </div>
+          </div>
+          <div id="weather" class="mt-6 text-center">
+            <p class="text-3xl">Loading weather...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div
+      class="container mx-auto flex flex-col items-center justify-center px-6 py-16"
+    >
+      <div class="text-center">
+        <h2
+          class="text-4xl md:text-6xl font-extrabold mb-6 comic-text highlight"
+        >
+          About WeatherWiz
+        </h2>
+        <p class="text-xl md:text-2xl mb-10">
+          "WeatherWiz is a mini project designed to provide reliable and
+          up-to-date weather information. Created with HTML, CSS (Tailwind), and
+          JavaScript, and powered by the OpenWeatherMap API, this app is a
+          demonstration of integrating web technologies with real-time data.
+          Whether you're planning an outing, commuting, or just curious about
+          the weather, WeatherWiz offers detailed forecasts, temperatures, and
+          more. Simply enter your city name and discover the weather conditions
+          instantly. This project showcases the power of modern web development
+          in delivering practical and engaging applications."
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 comic-border">
+      <div class="container mx-auto px-6 text-center comic-text">
+        <p class="text-lg">&copy; 2024 Simple Weather. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Weather Script -->
+    <script src="main.js"></script>
+  </body>
+</html>
